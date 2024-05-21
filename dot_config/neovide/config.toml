@@ -1,0 +1,6 @@
+vsync = true
+maximized = true
+idle = true
+frame = "buttonless"
+tabs = true
+title-hidden = true
