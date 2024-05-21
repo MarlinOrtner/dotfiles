@@ -1,0 +1,12 @@
+new-session -s BachelorThesis -n Local;
+new-window -n ssh@kali-bak ;
+new-window -n ssh@wazuhserver ; 
+new-window -n ssh@router; 
+send-keys -t BachelorThesis:1 cd Space /Users/marlinortner/Documents/FH/obsidian/FH2324/SS25/BAK C-m ;
+send-keys -t BachelorThesis:2 ssh Space kali-bak C-m ; 
+send-keys -t BachelorThesis:3 ssh Space wazuh-bak C-m ;
+send-keys -t BachelorThesis:4 ssh Space router-bak C-m ;
+select-window -t BachelorThesis:1
+
+
+
