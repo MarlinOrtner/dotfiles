@@ -1,0 +1,107 @@
+#zmodload zsh/zprof
+
+# If you come from bash you might have to change your $PATH.
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+SPACESHIP_CHAR_SYMBOL=" "
+
+# Uncomment the following line to enable command auto-correction.
+ #ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+alias x86="$env /usr/bin/arch -x86_64 /bin/zsh ---login"
+alias arm="$env /usr/bin/arch -arm64 /bin/zsh ---login"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+alias fh="cd ~/Documents/FH/Obsidian/FH2324/SS24"
+alias home="cd ~"
+export HOMEBREW_EDITOR=nvim
+alias acsc="cd ~/Documents/projects/ctf/acsc/acsc2024-quali"
+alias he="cd ~/Documents/projects/ctf/hackyeaster2024"
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+alias ts="tailscale"
+alias neoasitop="~/Documents/projects.nosync/neoasitop -c 3 -i 0.05 --avg 10 --verbose"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+#[[ ! -f ~/.p10k.zsh ]] || source ~/.config/p10k-robbyrussell.zsh
+#POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+#test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+#export LUA_CPATH = "package.cpath = package.cpath .. ";/Users/" .. os.getenv("USER") .. "/.local/share/sketchybar_lua/?.so".."$LUA_CPATH
+
+source ~/.secrets
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
+export PATH="/Users/marlinortner/.cargo/bin:$PATH"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/curl/lib/pkgconfig"
+export LDFLAGS="-L/opt/homebrew/opt/curl/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/curl/include"
+#pyenv init
+export PATH="/Library/Frameworks/Python.framework/Versions/3.10/bin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+#Lazload via ZSH_PYENV_LAZY_VIRTUALENV
+ZSH_PYENV_LAZY_VIRTUALENV=true
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
+#pyenv apps3 applications
+export PATH="/opt/homebrew/opt/curl/bin:$PATH"
+
+export PATH="/Users/marlinortner/.local/bin:$PATH"
+export PATH="/Applications/kitty.app/Contents/MacOS:$PATH"
+export PATH="/usr/local/clamav/bin:/usr/local/clamav/sbin:$PATH"
+## final ;; ensure that default path will be appended by Lua
+#export LUA_PATH="<path-to-add>;;"
+export LUA_CPATH="./?.so;/usr/local/lib/lua/5.3/?.so;
+                /usr/local/share/lua/5.3/?.so;/Users/marlinortner/.local/share/sketchybar_lua/?.so"
+
+#zprof
+#export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+#
+#alias ssh="kitten ssh"
+export PATH="$PATH:/home/marlinortner/Documents/projects/qmk_firmware"
+export PATH="/opt/homebrew/opt/avr-gcc@8/bin:$PATH"
+
+# NIX
+# Shell Completion
+eval "$(direnv hook zsh)"
+eval "$(pyenv init -)"
+
+[[ $- != *i* ]] && return
+
+#if command -v byobu &>/dev/null; then
+#        if [[ -z "$BYOBU_TERM" ]]; then
+#                byobu attach -t main || byobu new -s main
+#                exit
+#        fi
+#fi
+
+# imgpaste script from clipboard
+_byobu_sourced=1 . /opt/homebrew/Cellar/byobu/6.13_1/bin/byobu-launch 2>/dev/null || true
+# Don't put 'git' in your plugins=(...) list.
+# Instead, add this to the bottom of your .zshrc:
+git() {
+    unfunction git
+    source $ZSH/plugins/git/git.plugin.zsh
+    git "$@"
+}
+
+#zprof

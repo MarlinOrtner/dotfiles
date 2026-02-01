@@ -1,0 +1,4 @@
+SPACESHIP_CHAR_SYMBOL="󰻀 "
+# Paths
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+export PATH="$PATH:/home/xebuc/.local/bin"
