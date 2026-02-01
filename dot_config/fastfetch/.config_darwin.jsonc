@@ -1,0 +1,143 @@
+// I literally was like most of you guys, a dotfiles scavenger, and got this
+// config from https://github.com/waytoabv/Dotfiles/blob/main/.config/fastfetch/config.jsonc
+// So the credit belongs to "waytoabv"
+
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "kitty-icat",
+    "source": "{{ .chezmoi.homeDir }}/.config/fastfetch/panda.png",
+    "height": 20,
+    "width": 30,
+    "position": "left",
+    "padding": {
+      "top": 3,
+      "right": 3
+    }
+  },
+  "display": {
+    "separator": " "
+  },
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "format": "┌─────────────Hardware─────────────┐",
+      "outputColor": "cyan"
+    },
+    {
+      "type": "host",
+      "key": " PC ",
+      "keyColor": "red"
+    },
+    {
+      "type": "cpu",
+      "key": "│ ├ ",
+      "keyColor": "red"
+    },
+    {
+      "type": "gpu",
+      "key": "│ ├󰒆 ",
+      "keyColor": "red"
+    },
+    {
+      "type": "disk",
+      "key": "│ ├ ",
+      "folders": "/",
+      "format": "{size-used} / {size-total} ({size-percentage})",
+      "keyColor": "red"
+    },
+    {
+      "type": "swap",
+      "key": "│ ├SW",
+      "keyColor": "red"
+    },
+    {
+      "type": "display",
+      "key": "│ ├ ",
+      "keyColor": "red",
+      "format": "MONITOR ({name})"
+    },
+    {
+      "type": "memory",
+      "key": "└ └󰍛 ",
+      "keyColor": "red"
+    },
+    {
+      "type": "custom",
+      "format": "└──────────────────────────────────┘",
+      "outputColor": "cyan"
+    },
+    {
+      "type": "custom",
+      "format": "┌─────────────Software─────────────┐",
+      "outputColor": "cyan"
+    },
+    {
+      "type": "os",
+      "key": "􀣺 OS ",
+      "keyColor": "green"
+    },
+    {
+      "type": "kernel",
+      "key": "│ ├ ",
+      "keyColor": "green"
+    },
+    {
+      "type": "packages",
+      "key": "│ ├󰏖 ",
+      "keyColor": "green"
+    },
+    {
+      "type": "shell",
+      "key": "└ └ ",
+      "keyColor": "green"
+    },
+    {
+      "type": "de",
+      "key": " DE ",
+      "keyColor": "blue"
+    },
+    {
+      "type": "lm",
+      "key": "│ ├ ",
+      "keyColor": "blue"
+    },
+    {
+      "key": "│ ├ ",
+      "keyColor": "blue",
+      "type": "command",
+      "text": "pgrep AeroSpace &> /dev/null && echo AeroSpace `aerospace -v | awk '/aerospace CLI client version:/ {print $5}'`|| echo Quartz Compositor"
+    },
+    {
+      "type": "terminal",
+      "key": "│ ├ ",
+      "keyColor": "blue"
+    },
+    {
+      "type": "terminalfont",
+      "key": "└ └ ",
+      "keyColor": "blue"
+    },
+    {
+      "type": "custom",
+      "format": "└──────────────────────────────────┘",
+      "outputColor": "cyan"
+    },
+    {
+      "type": "custom",
+      "format": "┌──────────────Uptime──────────────┐",
+      "outputColor": "cyan"
+    },
+    {
+      "type": "uptime",
+      "key": "  Uptime",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "custom",
+      "format": "└──────────────────────────────────┘",
+      "outputColor": "cyan"
+    }
+  ]
+}
