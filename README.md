@@ -1,10 +1,10 @@
 # Dotfiles
 
-This repository contains my personal configuration files (dotfiles) for macOS and Linux, managed efficiently with [chezmoi](https://www.chezmoi.io/).
+This repository contains my personal configuration files (dotfiles) for **macOS** and **Linux**, managed efficiently with [chezmoi](https://www.chezmoi.io/).
 
 ## 📦 Contents
 
-| Category | Tool | Path |
+| Domain | Tool | Path |
 |----------|------|------|
 | **Editor** | Neovim (LazyVim) | `~/.config/nvim` |
 | **Terminal** | Kitty | `~/.config/kitty` |
@@ -15,17 +15,25 @@ This repository contains my personal configuration files (dotfiles) for macOS an
 | **Window Manager** (macOS) | AeroSpace | `~/.config/aerospace` |
 | **Hotkeys** (macOS) | skhd | `~/.config/skhd` |
 
-## 🚀 Usage on macOS with Chezmoi
+## 🚀 Getting Started
 
-### 1. Installation
+### 1. Install Chezmoi
 
-First, install `chezmoi` via Homebrew:
-
+**macOS** (via Homebrew):
 ```bash
 brew install chezmoi
 ```
 
-### 2. Initialization
+**Linux** (via Snap or script):
+```bash
+# Snap
+sudo snap install chezmoi --classic
+
+# Or one-line binary install
+sh -c "$(curl -fsLS get.chezmoi.io)"
+```
+
+### 2. Initialize & Apply
 
 Initialize chezmoi with this repository. Replace `username` with your GitHub username:
 
@@ -39,7 +47,7 @@ If you have already cloned this repo manually to `~/.local/share/chezmoi`, just 
 chezmoi apply
 ```
 
-### 3. Common Commands
+## 🛠️ Workflow & Commands
 
 *   **Apply changes** (update your home directory files from the source):
     ```bash
@@ -47,7 +55,7 @@ chezmoi apply
     ```
 *   **Edit a config file** (opens the source file in your `$EDITOR`):
     ```bash
-    chezmoi edit ~/.config/aerospace/aerospace.toml
+    chezmoi edit ~/.config/nvim/init.lua
     ```
 *   **Update source** (pull latest changes from the git remote):
     ```bash
@@ -57,6 +65,14 @@ chezmoi apply
     ```bash
     chezmoi diff
     ```
+
+## 🧩 Conventions
+
+*   **Templating:** The project uses `chezmoi` templates (e.g., `dot_zshrc.tmpl`) to handle OS-specific logic.
+*   **Naming:**
+    *   `dot_filename` → `~/.filename`
+    *   `executable_filename` → `~/.filename` (with +x permission)
+    *   `private_filename` → `~/.filename` (private, usually ignored)
 
 ## 🍎 macOS Specific Setup
 
