@@ -202,3 +202,7 @@ function y() {
 
 export EDITOR=nvim
 export VISUAL=$EDITOR
+
+{{ if eq .zmk true }}
+eval "$(direnv hook zsh)"
+{{end}}
