@@ -5,7 +5,7 @@ zrccompile() {
   fi
 }
 
-zrccompile "$HOME/.zshrc"
+zrccompile "$ZDOTDIR/.zshrc"
 
 DISABLE_AUTO_UPDATE="true"
 DISABLE_MAGIC_FUNCTIONS="true"
@@ -31,10 +31,10 @@ setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
 
 {{ if eq .chezmoi.os "darwin" }}
 # My System Specifiv Config: Darwin
-{{ include "./.zshrc_darwin" }}
+{{ include "./dot_config/zsh/.zshrc_darwin" }}
 {{ else if eq .chezmoi.os "linux" }}
 # My System Specifiv Config: Linux
-{{ include "./.zshrc_linux" }}
+{{ include "./dot_config/zsh/.zshrc_linux" }}
 {{ end }}
 
 

@@ -2,3 +2,7 @@ GEMINI.md
 README.md
 .config/nvim/lazyvim.json
 .config/atuin/atuin-receipt.json
+.config/zsh/.zsh_history
+.config/zsh/.zcompdump*
+
+.ssh-agent

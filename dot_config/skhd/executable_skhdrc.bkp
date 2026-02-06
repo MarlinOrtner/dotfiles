@@ -1,0 +1,147 @@
+#Administration
+ctrl + alt + cmd - y : aerospace reload-config;aerospace flatten-workspace-tree && terminal-notifier -title "aerospace" -message "Aerospace config reloaded"
+ctrl + alt + cmd - r : killall AeroSpace; open -n /Applications/AeroSpace.app
+
+# Navigation
+ctrl - h : aerospace focus left
+ctrl - j : aerospace focus down 
+ctrl - k : aerospace focus up
+ctrl - l : aerospace focus right
+
+
+# Moving windows
+shift + ctrl - h : aerospace move left
+shift + ctrl - j : aerospace move down 
+shift + ctrl - k : aerospace move up
+shift + ctrl - l : aerospace move right
+
+# Hide window
+cmd - m: aerospace macos-native-minimize
+
+# Move focus container to workspace
+#shift + ctrl - 1 : yabai -m window --space 1; yabai -m space --focus 1; yabai -m window --focus prev
+#shift + ctrl - 2 : yabai -m window --space 2; yabai -m space --focus 2; yabai -m window --focus prev
+#shift + ctrl - 3 : yabai -m window --space 3; yabai -m space --focus 3; yabai -m window --focus prev 
+#shift + ctrl - 4 : yabai -m window --space 4; yabai -m space --focus 4; yabai -m window --focus prev
+#shift + ctrl - 4 : yabai -m window --space 4; yabai -m space --focus 4; yabai -m window --focus prev
+#shift + ctrl - 5 : yabai -m window --space 5; yabai -m space --focus 5
+#shift + ctrl - 6 : yabai -m window --space 6; yabai -m space --focus 6
+#shift + ctrl - 7 : yabai -m window --space 7; yabai -m space --focus 7
+#shift + ctrl - 8 : yabai -m window --space 8; yabai -m space --focus 8
+#
+#
+shift + ctrl - 1 : aerospace move-node-to-workspace 1 --focus-follows-window
+shift + ctrl - 2 : aerospace move-node-to-workspace 2 --focus-follows-window
+shift + ctrl - 3 : aerospace move-node-to-workspace 3 --focus-follows-window
+shift + ctrl - 4 : aerospace move-node-to-workspace 4 --focus-follows-window
+shift + ctrl - 5 : aerospace move-node-to-workspace 5 --focus-follows-window
+shift + ctrl - 6 : aerospace move-node-to-workspace 6 --focus-follows-window
+shift + ctrl - 7 : aerospace move-node-to-workspace 7 --focus-follows-window
+shift + ctrl - 8 : aerospace move-node-to-workspace 8 --focus-follows-window
+shift + ctrl - 9 : aerospace move-node-to-workspace 9 --focus-follows-window
+shift + ctrl - 0 : aerospace move-node-to-workspace 10 --focus-follows-window
+#shift + ctrl - 1 :cur_window=$(yabai -m query --windows --window |jq '.id') && \
+#                  yabai -m window --space 1 && \
+#                  yabai -m window --focus ${cur_window}
+#shift + ctrl - 2 :cur_window=$(yabai -m query --windows --window |jq '.id') && \
+#                  yabai -m window --space 2 
+#shift + ctrl - 3 :cur_window=$(yabai -m query --windows --window |jq '.id') && \
+#                  yabai -m window --space 3 && \
+#                  yabai -m window --focus ${cur_window}
+#shift + ctrl - 4 : cur_window=$(yabai -m query --windows --window |jq '.id') && \
+#                  yabai -m window --space 4 && \
+#                  yabai -m window --focus ${cur_window}
+#shift + ctrl - 5 : cur_window=$(yabai -m query --windows --window |jq '.id') && \
+#                  yabai -m window --space 5 && \
+#                  yabai -m window --focus ${cur_window}
+#shift + ctrl - 6 : cur_window=$(yabai -m query --windows --window |jq '.id') && \
+#                  yabai -m window --space 6 && \
+#                  yabai -m window --focus ${cur_window}
+#shift + ctrl - 7 : cur_window=$(yabai -m query --windows --window |jq '.id') && \
+#                  yabai -m window --space 7 && \
+#                  yabai -m window --focus ${cur_window}
+#shift + ctrl - 8 : cur_window=$(yabai -m query --windows --window |jq '.id') && \
+#                  yabai -m window --space 8 && \
+#                  yabai -m window --focus ${cur_window}
+#shift + ctrl - 9 : cur_window=$(yabai -m query --windows --window |jq '.id') && \
+#                  yabai -m window --space 9 && \
+#                  yabai -m window --focus ${cur_window}
+# Resize windows
+#ctrl + alt - h : \
+#    yabai -m window --resize left:-100:0 ; \
+#    yabai -m window --resize right:-100:0
+#
+#ctrl + alt - j : \
+#    yabai -m window --resize bottom:0:100 ; \
+#    yabai -m window --resize top:0:100
+#
+#ctrl + alt - k : \
+#    yabai -m window --resize top:0:-100 ; \
+#    yabai -m window --resize bottom:0:-100
+#
+#ctrl + alt - l : \
+#    yabai -m window --resize right:100:0 ; \
+#    yabai -m window --resize left:100:0
+
+ctrl + alt - h : aerospace resize width +100
+ctrl + alt - j : aerospace resize height -100
+ctrl + alt - k : aerospace resize height +100
+ctrl + alt - l : aerospace resize width -100
+
+
+
+
+# Float and center window
+#shift + alt - c : yabai -m window --toggle float;\
+#                yabai -m window --grid 4:4:1:1:2:2
+
+# Set insertion point for focused container
+#shift + ctrl + alt - h : yabai -m window --insert west
+#shift + ctrl + alt - j : yabai -m window --insert south
+#shift + ctrl + alt - k : dyabai -m window --insert north
+#shift + ctrl + alt - l : yabai -m window --insert east
+
+# Float / Unfloat window
+#ctrl + alt - space : yabai -m window --toggle float
+ctrl + alt - space : aerospace layout floating tiling
+
+
+
+
+
+
+# Make fullscreen
+
+alt - f         : aerospace fullscreen
+alt-tab         : aerospace workspace-back-and-forth
+#shift + alt - f : yabai -m window --toggle native-fullscreen
+
+# Change space
+ctrl - right : yabai -m space --focus next || yabai -m space --focus first
+#ctrl - d: yabai -m space --focus next || yabai -m space --focus first
+ctrl - left : yabai -m space --focus prev || yabai -m space --focus last 
+#ctrl - a: yabai -m space --focus prev || yabai -m space --focus last 
+ctrl - 1 : aerospace workspace 1
+ctrl - 2 : aerospace workspace 2
+ctrl - 3 : aerospace workspace 3
+ctrl - 4 : aerospace workspace 4
+ctrl - 5 : aerospace workspace 5
+ctrl - 6 : aerospace workspace 6
+ctrl - 7 : aerospace workspace 7
+ctrl - 8 : aerospace workspace 8
+ctrl - 9 : aerospace workspace 9
+ctrl - 0 : aerospace workspace 10
+
+#Move Window to another monitor/display
+#ctrl + alt + cmd - right : ( yabai -m window --display next ; yabai -m display --focus next ) || (yabai -m window --display first; yabai -m window --focus first )
+#ctrl + alt + cmd - left: ( yabai -m window --display prev; yabai -m display --focus prev) || (yabai -m window --display last; yabai -m window --focus last)
+ctrl + alt + cmd - right : aerospace move-workspace-to-monitor next --wrap-around 
+ctrl + alt + cmd - left : aerospace move-workspace-to-monitor prev --wrap-around 
+
+
+
+cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+# cmd + shift - return : /bin/bash -c "~/.config/aerospace/dropdown-terminal.sh toggle"
+cmd + shift - return : /Applications/kitty.app/Contents/MacOS/kitten quick-access-terminal 
+#cmd + return : osascript -e 'tell application "iTerm2" to create window with default profile command ""' || open -na iTerm
+

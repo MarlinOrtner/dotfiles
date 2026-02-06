@@ -1,0 +1,2 @@
+# Use XDG_CONFIG_HOME if set, otherwise default to ~/.config
+ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
