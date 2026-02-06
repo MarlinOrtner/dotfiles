@@ -5,4 +5,5 @@ README.md
 .config/zsh/.zsh_history
 *.zcompdump*
 .zcompdump*
+.config/nvim/lazy-lock.json
 .ssh-agent
