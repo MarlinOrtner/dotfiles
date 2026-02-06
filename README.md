@@ -1,4 +1,5 @@
 # Dotfiles
+ii
 
 This repository contains my personal configuration files (dotfiles) for **macOS** and **Linux**, managed efficiently with [chezmoi](https://www.chezmoi.io/).
 
