@@ -205,3 +205,37 @@ export VISUAL=$EDITOR
 {{ if eq .zmk true }}
 eval "$(direnv hook zsh)"
 {{end}}
+
+if [ -z "$TMUX" ] && [ -n "$PS1" ]; then
+  # Define your sessions and their starting directories
+  # Format: "session_name:directory"
+  SESSIONS=('main:~' 'fh:~/Documents/FH/Obsidian/FH2324/MIS/' 'config:~/.config' 'telemetry:~/Documents/projects.nosync/')
+
+  for item in "${SESSIONS[@]}"; do
+      # Split the string into name and path
+      NAME=${item%%:*}
+      DIR=${item#*:}
+
+      # Check if the session already exists
+      tmux has-session -t "$NAME" 2>/dev/null
+
+      if [ $? != 0 ]; then
+          # Create the session detached (-d) so the script keeps running
+          tmux new-session -d -s "$NAME" -c "$DIR"
+          
+      fi
+  done
+
+      tmux has-session -t "$NAME" 2>/dev/null
+
+      if [ $? != 0 ]; then
+        # Optional: Add a default second window to 'work'
+        if [ "$NAME" == "fh" ]; then
+            tmux new-window -t "fh:2" -n "logs" -c "$DIR"
+        fi
+      fi
+
+  # Finally, attach to the 'main' session
+  tmux attach-session -t main
+fi
+
